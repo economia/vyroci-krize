@@ -1,0 +1,27 @@
+{
+  "name": "skeleton",
+  "version": "0.0.0",
+  "description": "Skeleton aplikaci Economia / IHNED.cz",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com:economia/Skeleton.git"
+  },
+  "author": "",
+  "licenses": [
+    {
+      "type": "CC-BY-NC-SA 3.0 CZ",
+      "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/cz/"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/economia/Skeleton/issues"
+  },
+  "dependencies": {
+    "stylus": "~0.37.0",
+    "uglify-js": "~2.4.0"
+  }
+}
