@@ -1,7 +1,7 @@
 require! {
     fs
 }
-deferScripts = <[ Graph.js ]>
+deferScripts = <[ Dimensionable.js LineGraph.js base.js ]>
 build-styles = (options = {}) ->
     require! stylus
     (err, data) <~ fs.readFile "#__dirname/www/styl/screen.styl"
@@ -31,9 +31,9 @@ combine-scripts = (options = {}) ->
     (err, files) <~ fs.readdir "#__dirname/www/js"
     files .= filter -> it isnt 'script.js' and it isnt 'script.js.map'
     files .= sort (a, b) ->
-        | a in deferScripts =>  1
-        | b in deferScripts => -1
-        | otherwise         =>  0
+        indexA = deferScripts.indexOf a
+        indexB = deferScripts.indexOf b
+        indexA - indexB
     files .= map -> "./www/js/#it"
     minifyOptions = {}
     if not options.compression
