@@ -1,14 +1,14 @@
 {
   "name": "skeleton",
   "version": "0.0.0",
-  "description": "Skeleton aplikaci Economia / IHNED.cz",
+  "description": "Vizualizace k 5. výročí začátku finační krize",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "github.com:economia/Skeleton.git"
+    "url": "git@github.com:economia/vyroci-krize.git"
   },
   "author": "",
   "licenses": [
