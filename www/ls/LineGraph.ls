@@ -4,3 +4,6 @@ window.LineGraph = class LineGraph implements Dimensionable
         @svg = d3.select parentSelector .append \svg
             ..attr \width @fullWidth
             ..attr \height @fullHeight
+        @drawing = @svg.append \g
+            ..attr \class \drawing
+            ..attr \transform "translate(#{@margin.top}, #{@margin.left})"
