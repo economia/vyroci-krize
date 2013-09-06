@@ -1,2 +1,5 @@
 new Tooltip!watchElements!
-unemploymentGraph = new LineGraph \#unemployment, [], {width: 650, height: 200}
+(err, unemployment) <~ d3.json "../data/unemployment.json"
+unemploymentLines = for id, data of unemployment
+    {id, data}
+unemploymentGraph = new LineGraph \#unemployment, unemploymentLines, {width: 650, height: 200}
