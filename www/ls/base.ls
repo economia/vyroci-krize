@@ -1,3 +1,2 @@
 new Tooltip!watchElements!
-
-unemployment = new LineGraph \#unemployment, [], {width: 650, height: 200}
+unemploymentGraph = new LineGraph \#unemployment, [], {width: 650, height: 200}
