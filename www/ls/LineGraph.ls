@@ -34,6 +34,7 @@ window.LineGraph = class LineGraph implements Dimensionable, XScale, YScale, YAx
                     ..append \path
                         ..attr \d ~> @area it.data
                         ..attr \fill ~> @colorScale it.id
+                        ..attr \data-tooltip ({id, name}) ~> name
                         ..attr \class \area
                     ..append \path
                         ..attr \d ~> @line it.data
