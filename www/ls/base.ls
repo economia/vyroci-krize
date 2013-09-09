@@ -14,8 +14,8 @@ g7 =
     392 # JP
     643 # RUS
 g20 =
-    36 # AUS
     682 # saud
+     36 # AUS
     356 # india
     710 # jafrika
     792 # tur
