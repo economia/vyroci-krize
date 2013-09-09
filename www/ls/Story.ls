@@ -3,20 +3,21 @@ $parent = $ \#story
 $ "<a></a>"
     ..addClass "arrow left"
     ..appendTo $parent
-    ..on \click ->
-        year = $ "a.yearSelector.active" .attr \data-year
-        year--
-        if year < 2008 then year = 2013
-        $ "a.yearSelector[data-year=#year]" .trigger \click
+    ..on \click -> moveYear -1
 
 $ "<a></a>"
     ..addClass "arrow right"
     ..appendTo $parent
-    ..on \click ->
-        year = $ "a.yearSelector.active" .attr \data-year
-        year++
-        if year > 2013 then year = 2008
-        $ "a.yearSelector[data-year=#year]" .trigger \click
+    ..on \click -> moveYear +1
+
+moveYear = (amount) ->
+    year = parseInt do
+        $ "a.yearSelector.active" .attr \data-year
+        10
+    year += amount
+    if year < 2008 then year = 2013
+    if year > 2013 then year = 2008
+    $ "a.yearSelector[data-year=#year]" .trigger \click
 
 window.drawYearSelector = ->
     marginLeft = unemploymentGraph.margin.left
