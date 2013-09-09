@@ -15,7 +15,7 @@ window.drawYearSelector = ->
             ..append "<span class='arrow'><span></span></span>"
             ..addClass \yearSelector
             ..css \left marginLeft + singleWidth * index
-            ..css \width singleWidth
+            ..css \width singleWidth - 10
             ..on \click ->
                 $ "a.active" .removeClass \active
                 $ele.addClass \active
