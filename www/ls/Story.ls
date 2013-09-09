@@ -22,18 +22,18 @@ selectYear = (year) ->
     $ ".year[data-year=#year]" .addClass \active
     fillColors = worldmap.fillColors
         ..keys!forEach -> fillColors.set it, off
-    onYears = switch year
+    displayedCountries = switch year
     | 2008 => [840]
     | 2009 => [156]
     | 2010 => [826]
     | 2011 => [840 826]
     | 2012 => [156 840 826]
     | 2013 => [156]
-    onYears.forEach -> fillColors.set it, on
+    displayedCountries.forEach -> fillColors.set it, on
     worldmap.update!
     unemploymentGraph
         ..dataFilter = (item) ->
             id = parseInt item.id, 10
-            id in onYears
+            id in displayedCountries
         ..draw!
 
