@@ -8,5 +8,5 @@ window.XScale =
 window.YScale =
     recomputeYScale: ->
         @y ?= d3.scale.linear!
-            ..domain [0 15]
+            ..domain [0 30]
             ..range [@height, 0]
