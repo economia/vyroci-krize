@@ -26,8 +26,8 @@ window.Worldmap = class Worldmap implements Dimensionable
         areas .= filter ({id}) ~>
             @fillColors.get id
         @colorScale = d3.scale.ordinal!
-            ..domain <[off on]>
-            ..range <[#D7191C #1A9641]>
+            ..domain <[white red green]>
+            ..range <[#ffffff #D7191C #1A9641]>
         @areas = @svg.selectAll \path.area
             .data areas
             .enter!
