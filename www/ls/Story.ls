@@ -17,8 +17,7 @@ window.selectYear = (year) ->
     $ ".year.active" .removeClass \active
     $ ".year[data-year=#year]" .addClass \active
     fillColors = worldmap.fillColors
-    fillColors.keys!forEach ->
-        fillColors.set it, \white
+        ..keys!forEach -> fillColors.set it, \white
     onYears = switch year
     | 2008 => [840]
     | 2009 => [156]
