@@ -24,11 +24,11 @@ selectYear = (year) ->
         ..keys!forEach -> fillColors.set it, off
     displayedCountries = switch year
     | 2008 => [840 300 724]
-    | 2009 => [372 792 203]
-    | 2010 => [300]
-    | 2011 => [840 826]
-    | 2012 => [156 840 826]
-    | 2013 => [156]
+    | 2009 => [203 372 792]
+    | 2010 => [203 484 392]
+    | 2011 => [380 ]
+    | 2012 => [380 840]
+    | 2013 => [840 203]
     displayedCountries.forEach -> fillColors.set it, on
     displayedCountries .= map -> "#it"
     worldmap.update!
