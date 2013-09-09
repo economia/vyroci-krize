@@ -72,11 +72,6 @@ body
             &:last-child
                 border-left 2px solid borderColor
 
-            &:active
-            &.active
-                background borderColor
-                .arrow
-                    border-left-color borderColor !important
             &.active
             &:active
             &:hover
@@ -84,6 +79,11 @@ body
                     border-left-color white
                 .arrow span
                     display none
+            &.active
+                background darken(borderColor, 10%)
+                border-color darken(borderColor, 10%)
+                .arrow
+                    border-left-color darken(borderColor, 10%) !important
             &:hover
                 cursor pointer
                 border-color darken(borderColor, 20%)
@@ -91,6 +91,11 @@ body
                 .arrow
                     border-left-color darken(borderColor, 20%) !important
 
+            &:active
+                background darken(borderColor, 10%)
+                border-color darken(borderColor, 10%)
+                .arrow
+                    border-left-color darken(borderColor, 10%) !important
 
         &.js
             .year
