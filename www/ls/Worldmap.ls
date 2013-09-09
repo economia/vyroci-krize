@@ -1,5 +1,5 @@
 window.Worldmap = class Worldmap implements Dimensionable
-    (@visiblePart, @fillColors, @colorScale, {width, height}) ->
+    (@visiblePart, @fillColors, @colorScale, countryNames, {width, height}) ->
         (err, world) <~ d3.json "../data/world.topojson"
         @margin =
             top    : 0
@@ -25,12 +25,16 @@ window.Worldmap = class Worldmap implements Dimensionable
         areas = topojson.feature world, world.objects.countries .features
         areas .= filter ({id}) ~>
             @fillColors.has id
+        areas.forEach (country) ->
+            country.name = countryNames[country.id]
         @areas = @svg.selectAll \path.area
             .data areas
             .enter!
             .append \path
                 ..attr \class \area
                 ..attr \d @path
+                ..attr \data-tooltip ({id, name}) ~>
+                    if @fillColors.get id then name else ""
                 ..attr \fill ({id}) ~>
                     if @fillColors.get id
                         @colorScale id
@@ -46,6 +50,8 @@ window.Worldmap = class Worldmap implements Dimensionable
         return if not @areas
         @areas.transition!
             ..duration 800
+            ..attr \data-tooltip ({id, name}) ~>
+                if @fillColors.get id then name else ""
             ..attr \fill ({id}) ~>
                 if @fillColors.get id
                     @colorScale id
