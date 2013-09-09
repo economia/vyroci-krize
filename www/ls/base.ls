@@ -20,7 +20,7 @@ unemploymentLines = for id, data of unemployment
     {id, name, data}
 fillColors = d3.map!
 
-for id, name in countries
+for id, name of countries
     fillColors.set id, off
 
 colorScale = d3.scale.ordinal!
