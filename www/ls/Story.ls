@@ -13,7 +13,7 @@ window.drawYearSelector = ->
                 selectYear year
             ..appendTo $parent
 
-window.selectYear = (year) ->
+selectYear = (year) ->
     $ ".year.active" .removeClass \active
     $ ".year[data-year=#year]" .addClass \active
     fillColors = worldmap.fillColors

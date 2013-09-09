@@ -32,4 +32,4 @@ g20 =
 
 window.worldmap = new Worldmap \earth fillColors, {width: 650, height: 350}
 drawYearSelector!
-selectYear 2009
+$ "a.yearSelector" .first!trigger \click
