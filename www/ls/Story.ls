@@ -2,11 +2,15 @@ $parent = $ \#story
     ..addClass \js
 
 window.drawYearSelector = ->
+    marginLeft = unemploymentGraph.margin.left
+    totalWidth = 650 - marginLeft
+    singleWidth = Math.round totalWidth / 5.75
     [2008 to 2013].forEach (year, index) ->
         $ele = $ "<a></a>"
             ..html year
             ..addClass \yearSelector
-            ..css \left unemploymentGraph.x (index+1) * 12
+            ..css \left marginLeft + singleWidth * index
+            ..css \width singleWidth
             ..on \click ->
                 $ "a.active" .removeClass \active
                 $ele.addClass \active
