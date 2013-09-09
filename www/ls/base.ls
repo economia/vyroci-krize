@@ -2,7 +2,7 @@ new Tooltip!watchElements!
 (err, unemployment) <~ d3.json "../data/unemployment.json"
 unemploymentLines = for id, data of unemployment
     {id, data}
-window.unemploymentGraph = new LineGraph \#unemployment, unemploymentLines, {width: 650, height: 200}
+
 fillColors = d3.map!
 g7 =
     250 # france
@@ -38,6 +38,7 @@ colorScale = d3.scale.ordinal!
     ..domain fillColors.keys!
     ..range <[#A6CEE3 #1F78B4 #B2DF8A #33A02C #FB9A99 #E31A1C #FDBF6F #FF7F00 #CAB2D6 #6A3D9A #FFFF99 ]>
 
+window.unemploymentGraph = new LineGraph \#unemployment, unemploymentLines, colorScale, {width: 650, height: 200}
 window.worldmap = new Worldmap \earth fillColors, colorScale, {width: 650, height: 350}
 drawYearSelector!
 $ "a.yearSelector" .first!trigger \click

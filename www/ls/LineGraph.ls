@@ -1,5 +1,6 @@
 window.LineGraph = class LineGraph implements Dimensionable, XScale, YScale, YAxis, LineDefinition
-    (parentSelector, @data, {width, height}:options) ->
+    (parentSelector, @fulldata, @colorScale, {width, height}:options) ->
+        @data = @fulldata
         @computeDimensions width, height
         @svg = d3.select parentSelector .append \svg
             ..attr \width @fullWidth
@@ -9,22 +10,41 @@ window.LineGraph = class LineGraph implements Dimensionable, XScale, YScale, YAx
             ..attr \transform "translate(#{@margin.left}, #{@margin.top})"
         @computeScales!
         @drawYAxis!
-        @draw!
 
     computeScales: ->
         @recomputeXScale!
         @recomputeYScale!
-    draw: ->
         @line = @getLineDefinition!
         @area = @getLineAreaDefinition!
-        @drawing.selectAll \path.line
-            .data @data, (.id)
-            .enter!
-                ..append \path
-                    ..attr \d ~> @area it.data
-                    ..attr \class \area
-                ..append \path
-                    ..attr \d ~> @line it.data
-                    ..attr \class \line
+
+    draw: ->
+        @data =
+            | @dataFilter => @fulldata.filter @dataFilter
+            | otherwise   => @fulldata.slice 0
+        @drawing.selectAll \g.country.active .data @data, (.id)
+            ..enter!
+                ..append \g
+                    ..attr \class "country active"
+                    ..attr \transform "translate(0, #{@height})"
+                    ..transition!
+                        ..duration 600
+                        ..delay 400
+                        ..attr \transform "translate(0, 0)"
+                    ..append \path
+                        ..attr \d ~> @area it.data
+                        ..attr \fill ~> @colorScale it.id
+                        ..attr \class \area
+                    ..append \path
+                        ..attr \d ~> @line it.data
+                        ..attr \stroke ~> @colorScale it.id
+                        ..attr \class \line
+            ..exit!
+                ..classed \active no
+                ..transition!
+                    ..duration 600
+                    ..attr \transform "translate(0, #{@height})"
+                    ..remove!
+
+
 
 

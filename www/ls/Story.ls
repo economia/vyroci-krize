@@ -31,3 +31,9 @@ selectYear = (year) ->
     | 2013 => [156]
     onYears.forEach -> fillColors.set it, on
     worldmap.update!
+    unemploymentGraph
+        ..dataFilter = (item) ->
+            id = parseInt item.id, 10
+            id in onYears
+        ..draw!
+
