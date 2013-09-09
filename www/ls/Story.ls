@@ -3,13 +3,20 @@ $parent = $ \#story
 $ "<a></a>"
     ..addClass "arrow left"
     ..appendTo $parent
-    ..on \cick ->
-        console.log \foo
+    ..on \click ->
+        year = $ "a.yearSelector.active" .attr \data-year
+        year--
+        if year < 2008 then year = 2013
+        $ "a.yearSelector[data-year=#year]" .trigger \click
+
 $ "<a></a>"
     ..addClass "arrow right"
     ..appendTo $parent
-    ..on \cick ->
-        console.log \foo
+    ..on \click ->
+        year = $ "a.yearSelector.active" .attr \data-year
+        year++
+        if year > 2013 then year = 2008
+        $ "a.yearSelector[data-year=#year]" .trigger \click
 
 window.drawYearSelector = ->
     marginLeft = unemploymentGraph.margin.left
@@ -23,6 +30,7 @@ window.drawYearSelector = ->
         $ele = $ "<a></a>"
             ..html year
             ..append "<span class='arrow'><span></span></span>"
+            ..attr \data-year year
             ..addClass \yearSelector
             ..css \left marginLeft + singleWidth * index
             ..css \width singleWidth - 10
