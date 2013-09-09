@@ -1,5 +1,15 @@
 $parent = $ \#story
     ..addClass \js
+$ "<a></a>"
+    ..addClass "arrow left"
+    ..appendTo $parent
+    ..on \cick ->
+        console.log \foo
+$ "<a></a>"
+    ..addClass "arrow right"
+    ..appendTo $parent
+    ..on \cick ->
+        console.log \foo
 
 window.drawYearSelector = ->
     marginLeft = unemploymentGraph.margin.left

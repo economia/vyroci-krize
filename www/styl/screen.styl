@@ -35,6 +35,24 @@ body
         height 200px
         width 100%
         borderColor = HNBlue
+        a.arrow
+            position absolute
+            top 152px
+            width 53px
+            height 54px
+            &:hover
+                cursor pointer
+            &.left
+                left 0px
+                background transparent url('http://ihned.cz/img/11_0/kulaty_posuvnik-r-neaktivni.png')
+                &:hover
+                    background-image url('http://ihned.cz/img/11_0/kulaty_posuvnik-l-aktivni.png')
+            &.right
+                right 0px
+                background transparent url('http://ihned.cz/img/11_0/kulaty_posuvnik-l-neaktivni.png')
+                &:hover
+                    background-image url('http://ihned.cz/img/11_0/kulaty_posuvnik-r-aktivni.png')
+
         a.yearSelector
             display block
             position absolute
