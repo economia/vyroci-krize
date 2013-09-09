@@ -28,6 +28,8 @@ g20 =
     300 # greece
     372 # irsko
     724 # spain
+    203 # cz
+
 
 
 
