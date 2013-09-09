@@ -1,7 +1,7 @@
 require! {
     fs
 }
-deferScripts = <[ Dimensionable.js LineGraph.js base.js ]>
+deferScripts = <[ Dimensionable.js Worldmap.js LineGraph.js base.js ]>
 build-styles = (options = {}) ->
     require! stylus
     (err, data) <~ fs.readFile "#__dirname/www/styl/screen.styl"
