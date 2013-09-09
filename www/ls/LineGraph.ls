@@ -7,17 +7,24 @@ window.LineGraph = class LineGraph implements Dimensionable, XScale, YScale, YAx
         @drawing = @svg.append \g
             ..attr \class \drawing
             ..attr \transform "translate(#{@margin.left}, #{@margin.top})"
-        @draw!
+        @computeScales!
         @drawYAxis!
+        @draw!
 
-    draw: ->
+    computeScales: ->
         @recomputeXScale!
         @recomputeYScale!
+    draw: ->
         @line = @getLineDefinition!
+        @area = @getLineAreaDefinition!
         @drawing.selectAll \path.line
             .data @data, (.id)
-            .enter!append \path
-                ..attr \d ~> @line it.data
-                ..attr \class \line
+            .enter!
+                ..append \path
+                    ..attr \d ~> @area it.data
+                    ..attr \class \area
+                ..append \path
+                    ..attr \d ~> @line it.data
+                    ..attr \class \line
 
 
