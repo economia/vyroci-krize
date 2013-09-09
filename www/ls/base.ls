@@ -1,40 +1,27 @@
 new Tooltip!watchElements!
+states =
+    250 : "Francie" #
+    840 : "USA"
+    826 : "Velká Británie"
+    276 : "Německo"
+    380 : "Itálie"
+    124 : "Kanada"
+    392 : "Japonsko"
+    792 : "Turecko"
+    484 : "Mexiko"
+    300 : "Řecko"
+    410 : "Korea"
+    372 : "Irsko"
+    724 : "Španělsko"
+    203 : "Česká republika"
 (err, unemployment) <~ d3.json "../data/unemployment.json"
 unemploymentLines = for id, data of unemployment
-    {id, data}
-
+    name = states[id]
+    {id, name, data}
 fillColors = d3.map!
-g7 =
-    250 # france
-    840 # usa
-    826 # GB
-    276 # DE
-    380 # IT
-    124 # CA
-    643 # RUS
-    392 # JP
-g20 =
-    682 # saud
-     36 # AUS
-    356 # india
-    710 # jafrika
-    792 # tur
-     32 # arg
-     76 # bra
-    484 # mex
-    156 # cina
-    360 # indon
-    300 # greece
-    410 # korea
-    372 # irsko
-    724 # spain
-    203 # cz
 
-
-
-
-(g7 ++ g20).forEach ->
-    fillColors.set it, off
+for id, name in states
+    fillColors.set id, off
 
 colorScale = d3.scale.ordinal!
     ..domain fillColors.keys!
