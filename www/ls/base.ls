@@ -25,6 +25,10 @@ g20 =
     156 # cina
     360 # indon
     410 # korea
+    300 # greece
+    372 # irsko
+    724 # spain
+
 
 
 (g7 ++ g20).forEach ->
