@@ -32,19 +32,48 @@ body
         top 179px
         height 200px
         width 100%
+        borderColor = HNBlue
         a.yearSelector
+            display block
             position absolute
-            width 70px
             text-align center
             padding-top 6px
             height (30px - @padding-top)
-            background #aaa
-            &:hover
-                cursor pointer
-                background #ccc
+            background white
+            border-top 2px solid borderColor
+            border-bottom 2px solid borderColor
+            .arrow
+                display block
+                position absolute
+                top -2px
+                right -20px
+                triangleHeight = 20px
+                border-top (triangleHeight * 0.86) solid transparent
+                border-bottom (triangleHeight * 0.86) solid transparent
+                border-left triangleHeight solid borderColor
+                width 0px
+                height 0px
+            &:first-child
+                .arrow
+                    display none
             &:active
             &.active
-                background #888
+                background borderColor
+                .arrow
+                    border-left-color borderColor !important
+            &.active
+            &:active
+            &:hover
+                + a .arrow
+                    border-left-color white
+            &:hover
+                cursor pointer
+                border-color darken(borderColor, 20%)
+                background darken(borderColor, 20%)
+                .arrow
+                    border-left-color darken(borderColor, 20%) !important
+
+
         &.js
             .year
                 position absolute

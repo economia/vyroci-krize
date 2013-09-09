@@ -30,4 +30,4 @@ colorScale = d3.scale.ordinal!
 window.unemploymentGraph = new LineGraph \#unemployment, unemploymentLines, colorScale, {width: 650, height: 200}
 window.worldmap = new Worldmap \earth fillColors, colorScale, countries, {width: 650, height: 350}
 drawYearSelector!
-$ "a.yearSelector" .first!trigger \click
+$ "a.yearSelector" .last!trigger \click

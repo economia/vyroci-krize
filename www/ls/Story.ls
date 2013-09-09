@@ -5,9 +5,14 @@ window.drawYearSelector = ->
     marginLeft = unemploymentGraph.margin.left
     totalWidth = 650 - marginLeft
     singleWidth = Math.round totalWidth / 5.75
-    [2008 to 2013].forEach (year, index) ->
+    $yearSelector = $ "<div></div>"
+        ..addClass \yearSelector
+        ..appendTo $parent
+    [2013 to 2008 by -1].forEach (year) ->
+        index = year - 2008
         $ele = $ "<a></a>"
             ..html year
+            ..append "<span class='arrow'></span>"
             ..addClass \yearSelector
             ..css \left marginLeft + singleWidth * index
             ..css \width singleWidth
@@ -15,7 +20,7 @@ window.drawYearSelector = ->
                 $ "a.active" .removeClass \active
                 $ele.addClass \active
                 selectYear year
-            ..appendTo $parent
+            ..appendTo $yearSelector
 
 selectYear = (year) ->
     $ ".year.active" .removeClass \active
