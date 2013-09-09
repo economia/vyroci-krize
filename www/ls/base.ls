@@ -5,3 +5,4 @@ unemploymentLines = for id, data of unemployment
 window.unemploymentGraph = new LineGraph \#unemployment, unemploymentLines, {width: 650, height: 200}
 
 drawYearSelector!
+selectYear 2009
