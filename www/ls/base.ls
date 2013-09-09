@@ -11,8 +11,8 @@ g7 =
     276 # DE
     380 # IT
     124 # CA
-    392 # JP
     643 # RUS
+    392 # JP
 g20 =
     682 # saud
      36 # AUS
@@ -24,8 +24,8 @@ g20 =
     484 # mex
     156 # cina
     360 # indon
-    410 # korea
     300 # greece
+    410 # korea
     372 # irsko
     724 # spain
     203 # cz
@@ -38,7 +38,7 @@ g20 =
 
 colorScale = d3.scale.ordinal!
     ..domain fillColors.keys!
-    ..range <[#A6CEE3 #1F78B4 #B2DF8A #33A02C #FB9A99 #E31A1C #FDBF6F #FF7F00 #CAB2D6 #6A3D9A #FFFF99 ]>
+    ..range <[ #E41A1C #377EB8 #4DAF4A #984EA3 #FF7F00 #FFFF33 #A65628 #F781BF #999999 ]>
 
 window.unemploymentGraph = new LineGraph \#unemployment, unemploymentLines, colorScale, {width: 650, height: 200}
 window.worldmap = new Worldmap \earth fillColors, colorScale, {width: 650, height: 350}
