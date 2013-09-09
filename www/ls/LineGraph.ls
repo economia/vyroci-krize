@@ -1,4 +1,4 @@
-window.LineGraph = class LineGraph implements Dimensionable, XScale, YScale, LineDefinition
+window.LineGraph = class LineGraph implements Dimensionable, XScale, YScale, YAxis, LineDefinition
     (parentSelector, @data, {width, height}:options) ->
         @computeDimensions width, height
         @svg = d3.select parentSelector .append \svg
@@ -6,8 +6,9 @@ window.LineGraph = class LineGraph implements Dimensionable, XScale, YScale, Lin
             ..attr \height @fullHeight
         @drawing = @svg.append \g
             ..attr \class \drawing
-            ..attr \transform "translate(#{@margin.top}, #{@margin.left})"
+            ..attr \transform "translate(#{@margin.left}, #{@margin.top})"
         @draw!
+        @drawYAxis!
 
     draw: ->
         @recomputeXScale!
