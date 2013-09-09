@@ -21,6 +21,7 @@ window.LineGraph = class LineGraph implements Dimensionable, XScale, YScale, YAx
         @data =
             | @dataFilter => @fulldata.filter @dataFilter
             | otherwise   => @fulldata.slice 0
+        if @dataSorter then @data.sort @dataSorter
         @drawing.selectAll \g.country.active .data @data, (.id)
             ..enter!
                 ..append \g

@@ -35,5 +35,9 @@ selectYear = (year) ->
     unemploymentGraph
         ..dataFilter = (item) ->
             item.id in displayedCountries
+        ..dataSorter = (a, b) ->
+            indexA = displayedCountries.indexOf a.id
+            indexB = displayedCountries.indexOf b.id
+            indexB - indexA
         ..draw!
 
