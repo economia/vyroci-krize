@@ -23,17 +23,17 @@ selectYear = (year) ->
     fillColors = worldmap.fillColors
         ..keys!forEach -> fillColors.set it, off
     displayedCountries = switch year
-    | 2008 => [840]
-    | 2009 => [156]
-    | 2010 => [826]
+    | 2008 => [840 300 724]
+    | 2009 => [372 792 203]
+    | 2010 => [300]
     | 2011 => [840 826]
     | 2012 => [156 840 826]
     | 2013 => [156]
     displayedCountries.forEach -> fillColors.set it, on
+    displayedCountries .= map -> "#it"
     worldmap.update!
     unemploymentGraph
         ..dataFilter = (item) ->
-            id = parseInt item.id, 10
-            id in displayedCountries
+            item.id in displayedCountries
         ..draw!
 
