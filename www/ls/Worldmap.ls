@@ -1,5 +1,5 @@
 window.Worldmap = class Worldmap implements Dimensionable
-    (@visiblePart, @fillColors, {width, height}) ->
+    (@visiblePart, @fillColors, @colorScale, {width, height}) ->
         (err, world) <~ d3.json "../data/world.topojson"
         @margin =
             top    : 0
@@ -24,10 +24,7 @@ window.Worldmap = class Worldmap implements Dimensionable
 
         areas = topojson.feature world, world.objects.countries .features
         areas .= filter ({id}) ~>
-            @fillColors.get id
-        @colorScale = d3.scale.ordinal!
-            ..domain <[white red green]>
-            ..range <[#ffffff #D7191C #1A9641]>
+            @fillColors.has id
         @areas = @svg.selectAll \path.area
             .data areas
             .enter!
@@ -35,7 +32,10 @@ window.Worldmap = class Worldmap implements Dimensionable
                 ..attr \class \area
                 ..attr \d @path
                 ..attr \fill ({id}) ~>
-                    @colorScale @fillColors.get id
+                    if @fillColors.get id
+                        @colorScale id
+                    else
+                        \#ffffff
 
         @svg.append \path
             .datum topojson.mesh world, world.objects.countries, (a, b) -> a isnt b
@@ -47,7 +47,10 @@ window.Worldmap = class Worldmap implements Dimensionable
         @areas.transition!
             ..duration 800
             ..attr \fill ({id}) ~>
-                @colorScale @fillColors.get id
+                if @fillColors.get id
+                    @colorScale id
+                else
+                    \#ffffff
 
     project: (area) ->
         center = [0 0]
