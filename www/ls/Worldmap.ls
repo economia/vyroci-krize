@@ -43,6 +43,7 @@ window.Worldmap = class Worldmap implements Dimensionable
             .attr \d @path
 
     update: ->
+        return if not @areas
         @areas.transition!
             ..duration 800
             ..attr \fill ({id}) ~>
