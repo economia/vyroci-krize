@@ -53,6 +53,15 @@ body
                 border-left triangleHeight solid borderColor
                 width 0px
                 height 0px
+                span
+                    position absolute
+                    top -15px
+                    left -21px
+                    triangleHeight = 18px
+                    border-top (triangleHeight * 0.86) solid transparent
+                    border-bottom (triangleHeight * 0.86) solid transparent
+                    border-left triangleHeight solid white
+
             &:first-child
                 .arrow
                     display none
@@ -66,6 +75,8 @@ body
             &:hover
                 + a .arrow
                     border-left-color white
+                .arrow span
+                    display none
             &:hover
                 cursor pointer
                 border-color darken(borderColor, 20%)
@@ -96,3 +107,4 @@ body
                 fill none
             .land
                 fill #fff
+

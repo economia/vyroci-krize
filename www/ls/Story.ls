@@ -12,7 +12,7 @@ window.drawYearSelector = ->
         index = year - 2008
         $ele = $ "<a></a>"
             ..html year
-            ..append "<span class='arrow'></span>"
+            ..append "<span class='arrow'><span></span></span>"
             ..addClass \yearSelector
             ..css \left marginLeft + singleWidth * index
             ..css \width singleWidth
