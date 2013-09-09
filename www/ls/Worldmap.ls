@@ -28,7 +28,7 @@ window.Worldmap = class Worldmap implements Dimensionable
         @colorScale = d3.scale.ordinal!
             ..domain <[off on]>
             ..range <[#D7191C #1A9641]>
-        @svg.selectAll \path.area
+        @areas = @svg.selectAll \path.area
             .data areas
             .enter!
             .append \path
@@ -41,6 +41,12 @@ window.Worldmap = class Worldmap implements Dimensionable
             .datum topojson.mesh world, world.objects.countries, (a, b) -> a isnt b
             .attr \class \boundary
             .attr \d @path
+
+    update: ->
+        @areas.transition!
+            ..duration 800
+            ..attr \fill ({id}) ~>
+                @colorScale @fillColors.get id
 
     project: (area) ->
         center = [0 0]
