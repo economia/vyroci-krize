@@ -64,7 +64,7 @@ window.Worldmap = class Worldmap implements Dimensionable
         | \earth
             scale       = @width / Math.PI / 2
             translation = [@width / 2, @height / 2]
-            center      = [0 25]
+            center      = [0 45]
         @projection
             ..scale scale
             ..translate translation
