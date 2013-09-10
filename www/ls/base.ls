@@ -29,6 +29,6 @@ colorScale = d3.scale.ordinal!
 
 width = $ window .width!
 window.unemploymentGraph = new LineGraph \#unemployment, unemploymentLines, colorScale, {width, height: 170}
-window.worldmap = new Worldmap \earth fillColors, colorScale, countries, {width, height: 240}
+window.worldmap = new Worldmap \earth fillColors, colorScale, countries, {width, height: 230}
 drawYearSelector width
 $ "a.yearSelector" .last!trigger \click
