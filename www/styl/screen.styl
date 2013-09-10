@@ -59,67 +59,70 @@ body
                 background transparent url('http://ihned.cz/img/11_0/kulaty_posuvnik-l-neaktivni.png')
                 &:hover
                     background-image url('http://ihned.cz/img/11_0/kulaty_posuvnik-r-aktivni.png')
-
-        a.yearSelector
-            display block
+        div.yearSelector
             position absolute
-            text-align center
-            padding-top 6px
-            padding-left 10px
-            height (30px - @padding-top)
-            background white
-            border-top 2px solid borderColor
-            border-bottom 2px solid borderColor
-            .arrow
+            top -5px
+            left 0px
+            a.yearSelector
                 display block
                 position absolute
-                top -2px
-                right -20px
-                triangleHeight = 20px
-                border-top (triangleHeight * 0.86) solid transparent
-                border-bottom (triangleHeight * 0.86) solid transparent
-                border-left triangleHeight solid borderColor
-                width 0px
-                height 0px
-                span
+                text-align center
+                padding-top 6px
+                padding-left 10px
+                height (30px - @padding-top)
+                background white
+                border-top 2px solid borderColor
+                border-bottom 2px solid borderColor
+                .arrow
+                    display block
                     position absolute
-                    top -15px
-                    left -21px
-                    triangleHeight = 18px
+                    top -2px
+                    right -20px
+                    triangleHeight = 20px
                     border-top (triangleHeight * 0.86) solid transparent
                     border-bottom (triangleHeight * 0.86) solid transparent
-                    border-left triangleHeight solid white
+                    border-left triangleHeight solid borderColor
+                    width 0px
+                    height 0px
+                    span
+                        position absolute
+                        top -15px
+                        left -21px
+                        triangleHeight = 18px
+                        border-top (triangleHeight * 0.86) solid transparent
+                        border-bottom (triangleHeight * 0.86) solid transparent
+                        border-left triangleHeight solid white
 
-            &:first-child
-                .arrow
-                    display none
-            &:last-child
-                border-left 2px solid borderColor
+                &:first-child
+                    .arrow
+                        display none
+                &:last-child
+                    border-left 2px solid borderColor
 
-            &.active
-            &:active
-            &:hover
-                + a .arrow
-                    border-left-color white
-                .arrow span
-                    display none
-            &.active
-                background darken(borderColor, 10%)
-                border-color darken(borderColor, 10%)
-                .arrow
-                    border-left-color darken(borderColor, 10%) !important
-            &:hover
-                cursor pointer
-                border-color darken(borderColor, 20%)
-                background darken(borderColor, 20%)
-                .arrow
-                    border-left-color darken(borderColor, 20%) !important
+                &.active
+                &:active
+                &:hover
+                    + a .arrow
+                        border-left-color white
+                    .arrow span
+                        display none
+                &.active
+                    background darken(borderColor, 10%)
+                    border-color darken(borderColor, 10%)
+                    .arrow
+                        border-left-color darken(borderColor, 10%) !important
+                &:hover
+                    cursor pointer
+                    border-color darken(borderColor, 20%)
+                    background darken(borderColor, 20%)
+                    .arrow
+                        border-left-color darken(borderColor, 20%) !important
 
-            &:active
-                background darken(borderColor, 10%)
-                border-color darken(borderColor, 10%)
-                .arrow
-                    border-left-color darken(borderColor, 10%) !important
+                &:active
+                    background darken(borderColor, 10%)
+                    border-color darken(borderColor, 10%)
+                    .arrow
+                        border-left-color darken(borderColor, 10%) !important
 
         &.js
             .year
