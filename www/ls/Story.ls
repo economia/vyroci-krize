@@ -19,9 +19,9 @@ moveYear = (amount) ->
     if year > 2013 then year = 2008
     $ "a.yearSelector[data-year=#year]" .trigger \click
 
-window.drawYearSelector = ->
+window.drawYearSelector = (width) ->
     marginLeft = unemploymentGraph.margin.left
-    totalWidth = 650 - marginLeft
+    totalWidth = width - marginLeft - 27
     singleWidth = Math.round totalWidth / 5.75
     $yearSelector = $ "<div></div>"
         ..addClass \yearSelector
