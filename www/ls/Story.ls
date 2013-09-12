@@ -63,5 +63,6 @@ selectYear = (year) ->
             indexA = displayedCountries.indexOf a.id
             indexB = displayedCountries.indexOf b.id
             indexB - indexA
+        ..moveBackgound year
         ..draw!
 

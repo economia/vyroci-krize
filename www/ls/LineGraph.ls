@@ -1,4 +1,4 @@
-window.LineGraph = class LineGraph implements Dimensionable, XScale, YScale, YAxis, LineDefinition
+window.LineGraph = class LineGraph implements Dimensionable, XScale, YScale, YAxis, LineDefinition, BackgroundHighligher
     (parentSelector, @fulldata, @colorScale, {width, height}:options) ->
         @data = @fulldata
         @computeDimensions width, height
@@ -8,7 +8,9 @@ window.LineGraph = class LineGraph implements Dimensionable, XScale, YScale, YAx
         @drawing = @svg.append \g
             ..attr \class \drawing
             ..attr \transform "translate(#{@margin.left}, #{@margin.top})"
+
         @computeScales!
+        @initBackgroundHighlighter @drawing
         @drawYAxis!
 
     computeScales: ->
