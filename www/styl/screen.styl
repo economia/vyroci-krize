@@ -44,7 +44,7 @@ body
     #story
         z-index 2
         position absolute
-        top unemploymentHeight
+        top 0px // no-js only
         height storyHeight
         width 100%
         borderColor = HNBlue
@@ -131,6 +131,7 @@ body
                         border-left-color darken(borderColor, 10%) !important
 
         &.js
+            top unemploymentHeight
             .year
                 position absolute
                 top 20px

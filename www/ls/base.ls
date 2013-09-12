@@ -1,3 +1,5 @@
+return if !d3 # IE
+$ '.fallback' .remove!
 new Tooltip!watchElements!
 countries =
     250 : "Francie"

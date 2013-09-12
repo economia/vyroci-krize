@@ -1,3 +1,4 @@
+return if !d3 # IE
 $parent = $ \#story
     ..addClass \js
 $ "<a></a>"
