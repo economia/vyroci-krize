@@ -32,3 +32,8 @@ window.unemploymentGraph = new LineGraph \#unemployment, unemploymentLines, colo
 window.worldmap = new Worldmap \earth fillColors, colorScale, countries, {width, height: 230}
 drawYearSelector width
 $ "a.yearSelector" .last!trigger \click
+window.unemploymentGraph.svg.append \text
+    ..attr \class \description
+    ..text "Nezaměstnanost"
+    ..attr \y 0
+    ..attr \transform "translate(#{window.unemploymentGraph.width - 20}, 30) rotate(90)"
