@@ -24,9 +24,8 @@ for id, name of countries
     fillColors.set id, off
 
 colorScale = d3.scale.ordinal!
-    ..domain fillColors.keys!
-    ..range <[ #E41A1C #377EB8 #4DAF4A #984EA3 #FF7F00 #FFFF33 #A65628 #F781BF #999999 ]>
-
+    ..domain [276 840 826 250 300 372 724 203 484 124]
+    ..range <[ #E41A1C #377EB8 #4DAF4A #984EA3 #FF7F00 #FFFF33 #A65628 #F781BF #4DAF4A]>
 width = $ window .width!
 window.unemploymentGraph = new LineGraph \#unemployment, unemploymentLines, colorScale, {width, height: 170}
 window.worldmap = new Worldmap \earth fillColors, colorScale, countries, {width, height: 230}
