@@ -53,7 +53,7 @@ selectYear = (year) ->
     | 2010 => [300]
     | 2011 => [380 372 724]
     | 2012 => [203]
-    | 2013 => [484 124 840]
+    | 2013 => [196]
     displayedCountries.forEach -> fillColors.set it, on
     displayedCountries .= map -> "#it"
     worldmap.update!
