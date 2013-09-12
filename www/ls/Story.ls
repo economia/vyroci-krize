@@ -66,4 +66,5 @@ selectYear = (year) ->
             indexB - indexA
         ..moveBackgound year
         ..draw!
+    _gaq.push ['_trackEvent' 'vyroci-krize' 'year' year]
 
