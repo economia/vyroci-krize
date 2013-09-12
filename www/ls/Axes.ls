@@ -4,16 +4,15 @@ window.YAxis =
             ..scale @y
             ..ticks 5
             ..tickFormat -> "#it%"
-            ..tickSize @width
+            ..tickSize @width - 39
             ..outerTickSize 0
             ..orient \right
         @yAxisGroup = @drawing.append \g
             ..attr \class "axis y"
             ..call yAxis
             ..selectAll "text"
-                ..attr \x -10
+                ..attr \x @width - 30
                 ..attr \dy 5
-                ..style \text-anchor \end
             # ..selectAll "line"
             #     ..filter( -> it % 10)
             #         ..classed \minor yes
