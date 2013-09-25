@@ -5,7 +5,7 @@ ve spolupráci s oddělením vývoje redakčních technologií [IHNED.cz](http:/
 
 ## Výročí krize
 
-http://ihned.cz/tbn
+http://byznys.ihned.cz/c1-60708390-krize-sebrala-lidem-miliony-mist-podivejte-se-kdy-uderila-u-nas-a-ve-svete
 
 ### Instalace:
 
